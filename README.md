@@ -28,3 +28,8 @@ Stretch goal: telemetry backend
 
 - Anyone with other relevant skills who thinks they can contribute
 [1] https://sites.google.com/view/sources-aislop 
+
+# For candidates:
+
+We will make a short assessment on fit for people who want to contribute. This repo contains boilerplate code for a python backend and a browser plugin. Make a PR that detects if the user is on Reddit or ChatGPT, log the current url to console and change the border color to a specific color depending on the current web page. Feel free to vibe the PR.
+
