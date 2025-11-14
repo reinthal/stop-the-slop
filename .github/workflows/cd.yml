@@ -8,7 +8,7 @@ on:
       - "src/**"
 
 env:
-  DOCKER_IMAGE: "datadrivet-template" # change this to reflect the project name
+  DOCKER_IMAGE: "stop-the-slop" # change this to reflect the project name
   DOCKERFILE: "./Dockerfile"
   SOURCE_PATH: "."
 
@@ -92,7 +92,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ vars.AZURE_REGISTRY_LOGIN_SERVER }}/${{ env.DOCKER_IMAGE }}
+          images: ghcr.io/${{ github.repository }}
           tags: |
             type=semver,pattern={{version}},value=${{ needs.bump_version.outputs.cz_version }}
 
@@ -104,11 +104,11 @@ jobs:
 
       - name: Docker Login
         if: github.event_name != 'pull_request'
-        uses: azure/docker-login@v1
+        uses: docker/login-action@v3
         with:
-          login-server: ${{ vars.AZURE_REGISTRY_LOGIN_SERVER }}
-          username: ${{ vars.AZURE_REGISTRY_USERNAME }}
-          password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push
         uses: docker/build-push-action@v6

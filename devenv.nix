@@ -19,7 +19,7 @@
     eval $@
     popd 1>/dev/null
   '';
-  
+
   scripts.updatekeys.exec = ''
     exec-from-repo-root sops updatekeys secrets.env
   '';
@@ -27,7 +27,7 @@
   scripts.editsecrets.exec = ''
     exec-from-repo-root sops secrets.env
   '';
-  
+
   scripts.run.exec = ''
     exec-from-repo-root uv run fastapi dev src/main.py --host 0.0.0.0 --port 8000 --reload
   '';
@@ -50,12 +50,14 @@
 
   scripts.banner.exec = ''
     echo -e "\033[32m"
-    echo "      _       _            _      _           _   "
-    echo "     | |     | |          | |    (_)         | |  "
-    echo "   __| | __ _| |_ __ _  __| |_ __ ___   _____| |_ "
-    echo "  / _\` |/ _\` | __/ _\` |/ _\` | '__| \ \ / / _ \ __|"
-    echo " | (_| | (_| | || (_| | (_| | |  | |\ V /  __/ |_ "
-    echo "  \__,_|\__,_|\__\__,_|\__,_|_|  |_| \_/ \___|\__|"
+    echo "      _                    _   _                _             "
+    echo "     | |                  | | | |              | |            "
+    echo "  ___| |_ ___  _ __       | |_| |__   ___   ___| | ___  _ __  "
+    echo " / __| __/ _ \| '_ \      | __| '_ \ / _ \ / __| |/ _ \| '_ \ "
+    echo " \__ \ || (_) | |_) | ##  | |_| | | |  __/ \__ \ | (_) | |_) |"
+    echo " |___/\__\___/| .__/  ##   \__|_| |_|\___| |___/_|\___/| .__/ "
+    echo "              | |                                      | |     "
+    echo "              |_|                                      |_|     "
     echo -e "\033[0m"
   '';
 
@@ -87,7 +89,7 @@
     echo -e "\033[32mPre-commit hooks installed successfully!\033[0m"
   '';
   scripts.reload.exec = "direnv allow";
-  
+
   enterShell = ''
     uv --version | grep --color=auto "${pkgs.uv.version}"
     python --version | grep --color=auto "${pkgs.python312.version}"

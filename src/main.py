@@ -9,9 +9,9 @@ from utils.my_math import some_function
 
 # Create FastAPI app instance
 app = FastAPI(
-    title="Datadrivet Template API",
+    title="Stop the Slop API",
     description="A simple FastAPI application exposing utility functions!",
-    version="0.1.0",
+    version="0.0.1",
 )
 
 
@@ -43,13 +43,13 @@ class EnvVarResponse(BaseModel):
 @app.get("/")
 async def hello_world():
     """Hello World endpoint"""
-    return {"message": "Hello from datadrivet-template FastAPI!"}
+    return {"message": "Hello from stop-the-slop FastAPI!"}
 
 
 @app.get("/health")
 async def health_check():
     """Health check endpoint"""
-    return {"status": "healthy", "service": "datadrivet-template"}
+    return {"status": "healthy", "service": "stop-the-slop"}
 
 
 @app.post("/math", response_model=MathResponse)
@@ -115,7 +115,7 @@ async def demo_all_functions():
 
 # Main function for backwards compatibility
 def main():
-    print("Hello from datadrivet-template!")
+    print("Hello from stop-the-slop!")
     print(f"Do math: {some_function(1)}")
     your_ip = get_ip()
     print(f"Your IP is: {your_ip}")
