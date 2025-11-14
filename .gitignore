@@ -1,0 +1,13 @@
+__pycache__/
+.direnv
+.vscode/
+**.ipynb_checkpoints**
+
+# Devenv
+.devenv*
+devenv.local.nix
+
+# direnv
+.direnv
+
+

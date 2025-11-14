@@ -1,0 +1,26 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.12.9
+    hooks:
+      - id: ruff
+        args: [--fix]
+        types_or: [python]
+      - id: ruff-format
+        types_or: [python]
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.8.3
+    hooks:
+      - id: commitizen
+        stages:
+          - commit-msg
+
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: uv run --group test pytest
+        language: system
+        types: [python]
+        pass_filenames: false
+        always_run: true
