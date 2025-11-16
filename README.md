@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="plugin/stop-the-slop/icons/stop-the-slop.png" alt="Stop the Slop" width="128">
+</div>
+
 # What is this project
 
 Build a defensive application (maybe a browser plugin?) that helps users course correct when engaging with AI content or other content that could be harmful.
