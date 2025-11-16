@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Stop the Slop",
-  "version": "1.0",
+  "version": "0.2.1",
   "description": "Detects Reddit & ChatGPT, logs URL, changes border color.",
   "icons": {
     "48": "icons/stop-the-slop.png"
@@ -9,7 +9,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["borderify.js"],
+      "js": ["stop-the-slop.js"],
       "run_at": "document_end"
     }
   ],

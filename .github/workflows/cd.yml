@@ -35,6 +35,7 @@ jobs:
             source:
               - './src/**/*.py'
               - './Dockerfile'
+              - ./plugins/stop-the-slop/**
 
   bump_version:
     name: "Bump version"
@@ -60,7 +61,7 @@ jobs:
           working_directory: .
           changelog_increment_filename: body.md
       - name: Seriously Print New version
-        run: echo "Backend version Uplifted! ${{ steps.cz.outputs.version }}"
+        run: echo "Version Uplifted! ${{ steps.cz.outputs.version }}"
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
