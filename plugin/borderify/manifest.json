@@ -1,18 +1,20 @@
 {
-  "manifest_version": 2,
-  "name": "Borderify",
+  "manifest_version": 3,
+  "name": "Stop the Slop",
   "version": "1.0",
-
-  "description": "Adds a red border to all webpages matching mozilla.org.",
-
+  "description": "Detects Reddit & ChatGPT, logs URL, changes border color.",
   "icons": {
-    "48": "icons/border-48.png"
+    "48": "icons/stop-the-slop.png"
   },
-
   "content_scripts": [
     {
-      "matches": ["*://*.mozilla.org/*"],
-      "js": ["borderify.js"]
+      "matches": ["<all_urls>"],
+      "js": ["borderify.js"],
+      "run_at": "document_end"
     }
-  ]
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["activeTab"]
 }
