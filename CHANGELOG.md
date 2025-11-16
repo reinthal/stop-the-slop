@@ -1,3 +1,9 @@
+## v0.2.0 (2025-11-16)
+
+### Feat
+
+- source api version from pyproject instead
+
 ## v0.1.0 (2025-11-16)
 
 ### Feat
