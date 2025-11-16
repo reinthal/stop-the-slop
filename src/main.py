@@ -1,3 +1,5 @@
+import tomllib
+from pathlib import Path
 from typing import Optional
 
 from fastapi import FastAPI, HTTPException
@@ -7,11 +9,23 @@ from utils.integrations import get_env_var
 from utils.io_functions import get_ip
 from utils.my_math import some_function
 
+
+def get_version_from_pyproject() -> str:
+    """Read version from pyproject.toml"""
+    try:
+        pyproject_path = Path(__file__).parent.parent / "pyproject.toml"
+        with open(pyproject_path, "rb") as f:
+            pyproject_data = tomllib.load(f)
+        return pyproject_data["project"]["version"]
+    except Exception:
+        return "unknown"
+
+
 # Create FastAPI app instance
 app = FastAPI(
     title="Stop the Slop API",
     description="A simple FastAPI application exposing utility functions!",
-    version="0.0.1",
+    version=get_version_from_pyproject(),
 )
 
 
