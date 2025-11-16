@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Stop the Slop",
-  "version": "0.2.1",
+  "version": "0.1.0",
   "description": "Detects Reddit & ChatGPT, logs URL, changes border color.",
   "icons": {
     "48": "icons/stop-the-slop.png"

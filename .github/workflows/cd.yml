@@ -62,6 +62,12 @@ jobs:
           changelog_increment_filename: body.md
       - name: Seriously Print New version
         run: echo "Version Uplifted! ${{ steps.cz.outputs.version }}"
+      - name: Update manifest.json version
+        run: |
+          sed -i 's/"version": "[^"]*"/"version": "${{ steps.cz.outputs.version }}"/' plugin/stop-the-slop/manifest.json
+          git add plugin/stop-the-slop/manifest.json
+          git commit -m "bump: update manifest.json version to ${{ steps.cz.outputs.version }}"
+          git push
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
